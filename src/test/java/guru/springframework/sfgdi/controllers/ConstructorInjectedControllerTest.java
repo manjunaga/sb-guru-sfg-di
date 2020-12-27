@@ -1,22 +1,21 @@
 package guru.springframework.sfgdi.controllers;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import guru.springframework.sfgdi.services.GreetingServiceImpl;
+import org.junit.Before;
+import org.junit.Test;
 
-import guru.springframework.sfgdi.services.ConstructorInjectedGreetingService;
+import static org.junit.Assert.assertEquals;
 
-class ConstructorInjectedControllerTest {
-	
-	ConstructorInjectedController controller;
+public class ConstructorInjectedControllerTest {
+	private ConstructorInjectedController constructorInjectedController;
 
-	@BeforeEach
-	void setUpBeforeClass() throws Exception {
-		controller = new ConstructorInjectedController(new ConstructorInjectedGreetingService());
+	@Before
+	public void setUp() throws Exception {
+		this.constructorInjectedController = new ConstructorInjectedController(new GreetingServiceImpl());
 	}
 
 	@Test
-	void testGetGreeting() {
-		System.out.println(controller.getGreeting());
+	public void testGreeting() throws Exception {
+		assertEquals(GreetingServiceImpl.HELLO_GURUS, constructorInjectedController.sayHello());
 	}
-
 }
