@@ -13,15 +13,10 @@ import guru.springframework.sfgdi.examplebeans.FakeDataSource;
 import guru.springframework.sfgdi.examplebeans.FakeJMSBroker;
 
 @Configuration
-//@PropertySource({"classpath:datasource.properties", "classpath:fakejms.properties"})
-@PropertySources({
-	@PropertySource("classpath:datasource.properties"),
-	@PropertySource("classpath:fakejms.properties")
-})
 public class PropertyConfig {
 	
-	@Autowired
-	Environment env;
+//	@Autowired
+//	Environment env;
 
 	@Value("${guru.username}")
 	String username;
@@ -44,8 +39,8 @@ public class PropertyConfig {
 	@Bean
 	public FakeDataSource fakeDataSource() {
 		FakeDataSource fakedatasource = new FakeDataSource();
-//		fakedatasource.setUsername(username);
-		fakedatasource.setUsername(env.getProperty("USERNAME"));
+		fakedatasource.setUsername(username);
+//		fakedatasource.setUsername(env.getProperty("USERNAME"));
 		fakedatasource.setPassword(password);
 		fakedatasource.setDburl(dburl);
 		return fakedatasource;
@@ -60,10 +55,10 @@ public class PropertyConfig {
 		return fakejmsbroker;
 	}
 
-	@Bean
-	public static PropertySourcesPlaceholderConfigurer properties() {
-		PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-		return propertySourcesPlaceholderConfigurer;
-	}
+//	@Bean
+//	public static PropertySourcesPlaceholderConfigurer properties() {
+//		PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+//		return propertySourcesPlaceholderConfigurer;
+//	}
 
 }
