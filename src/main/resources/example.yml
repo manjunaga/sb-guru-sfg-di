@@ -1,0 +1,35 @@
+# This is a comment section
+
+name: John
+names: # Inline Comment
+    -  John
+    -  Paul 
+    -  Ringo
+    
+pound_sign: "#"
+
+book:
+    author: Joe Buck
+    publisher: random house
+    
+truth: yes
+
+another_truth: True
+
+more_true: true
+
+false: no #No, false, False, FALSE
+
+string_val: "This is it's quote"
+
+colon_String: "My courses: one two three"
+
+include_new_lines: |
+     manju had a little
+     lamb and little
+     lamb and many little
+     
+ignore_new_lines: >
+     this is 
+     just one long 
+     string in one line
